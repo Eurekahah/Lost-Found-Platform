@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { onMounted, ref } from 'vue'
 
+axios.defaults.baseURL=import.meta.env.VITE_API_URL
 const baseURL = 'http://121.36.200.128:5000/api/';
 
 const unreviewClaimItems = ref([])

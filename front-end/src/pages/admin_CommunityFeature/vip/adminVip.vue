@@ -11,7 +11,7 @@ const props=defineProps({
     required: true
   }
 });
-console.log(props.user_id)
+//console.log(props.user_id)
 const isModalVisible = ref(false);
 
 const showModal = async () => {

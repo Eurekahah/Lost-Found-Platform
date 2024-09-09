@@ -65,14 +65,14 @@ const generateQRCode=()=>{
   const selected = rechargeOptions.find(option => option.id === selectedOption.value);
   rechargeId.value= 'recharge_'+account.userId + Date.now();
 
-  qrCodeUrl.value=`http://121.36.200.128:5173/#/recharge/${rechargeId.value}`
+  qrCodeUrl.value=`${import.meta.env.VITE_BASE_URL}/#/recharge/${rechargeId.value}`
   console.log(qrCodeUrl.value)
   //setupWebSocket();
   ws.value.send(JSON.stringify({ type: 'start_monitoring', rechargeId: rechargeId.value, userId:+account.userId}));
 }
 const ws=ref();
 const setupWebSocket = () => {
-  ws.value = new WebSocket(`ws://121.36.200.128:5001/rechargews?user_id=${account.userId}`);
+  ws.value = new WebSocket(`${import.meta.env.VITE_WEB_SOCKET}/rechargews?user_id=${account.userId}`);
 
   ws.value.onopen = () => {
     console.log('WebSocket连接已建立');

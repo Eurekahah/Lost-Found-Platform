@@ -139,7 +139,7 @@ const removeMessage = (message_id: number) => {
 };
 
 const connect = () => {
-  socket.value = new WebSocket(`ws://121.36.200.128:5001/ws?user_id=${current_user_id.value}`);
+  socket.value = new WebSocket(`${import.meta.env.VITE_WEB_SOCKET}ws?user_id=${current_user_id.value}`);
 
   socket.value.onopen = () => {
     connectionStatus.value = 'Connected';

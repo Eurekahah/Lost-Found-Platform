@@ -18,8 +18,6 @@
   import ActiveUsers from './ActiveUsers.vue';
   import SalesOverview from './SalesOverview.vue';
   import Projects from './Projects.vue';
-  import OrderHistory from './OrderHistory.vue';
-  import AboutUs from './AboutUs.vue';
   import { useUnbounded } from '@/utils/useTheme';
   import { useAccountStore } from '@/store';
 
