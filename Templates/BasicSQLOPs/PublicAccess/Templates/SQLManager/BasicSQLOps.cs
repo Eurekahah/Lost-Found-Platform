@@ -3,7 +3,7 @@ using SQLOperation.PublicAccess.Templates.TemplateInterfaceManager;
 using System.Data;
 using System.Diagnostics;
 using System.Text.Json;
-
+using System.Configuration;
 
 namespace SQLOperation.PublicAccess.Templates.SQLManager
 {
@@ -13,8 +13,10 @@ namespace SQLOperation.PublicAccess.Templates.SQLManager
         {
             //dbORM db = new dbORM();
             //db.getInstance();
-            string DataSource = "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORCL)))";
-            Connection connection = new Connection("ADMIN", "123456", "121.36.200.128:1521/ORCL");
+            //string DataSource = "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORCL)))";
+            //Connection connection = new Connection("ADMIN", "123456", "121.36.200.128:1521/ORCL");
+            string connectionString = ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString;
+            Connection connection = new Connection(connectionString);
         }
 
         private Connection DatabaseConnector;
